@@ -8,6 +8,17 @@ workflows:
         script: |
           cd LiveScoresFlutter
           flutter create .
+      - name: Inject Internet Permission
+        script: |
+          cd LiveScoresFlutter
+          python3 -c "
+          import sys
+          path = 'android/app/src/main/AndroidManifest.xml'
+          with open(path, 'r') as f: content = f.read()
+          if 'android.permission.INTERNET' not in content:
+              content = content.replace('<application', '<uses-permission android:name=\"android.permission.INTERNET\"/>\n    <application')
+              with open(path, 'w') as f: f.write(content)
+          "
       - name: Build APK
         script: |
           cd LiveScoresFlutter
