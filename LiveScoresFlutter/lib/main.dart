@@ -280,7 +280,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     if (isLive)
                       Container(
-                        margin: const EdgeInsets.top(4),
+                        margin: const EdgeInsets.only(top: 4),
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.redAccent.withOpacity(0.2),
