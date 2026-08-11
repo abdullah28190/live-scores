@@ -1,0 +1,12 @@
+workflows:
+  android-workflow:
+    name: Build Android APK
+    environment:
+      flutter: stable
+    scripts:
+      - name: Generate Android project
+        script: flutter create .
+      - name: Build APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
